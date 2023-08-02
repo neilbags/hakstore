@@ -84,6 +84,7 @@ func (c *Client) CreatePlatform(platform Platform) (Platform, error) {
 	if err != nil {
 		return emptyplatform, err
 	}
+	log.Println(resp.Body)
 	defer resp.Body.Close()
 	err = json.NewDecoder(resp.Body).Decode(&platform)
 	return platform, err
